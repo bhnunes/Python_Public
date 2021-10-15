@@ -2,8 +2,9 @@ import os
 import xlsxwriter
 import pandas as pd
 
-path=r'C:\Users\BrunoHenriqueNunes\Desktop\Consolidate Python\EDRIM_Loader_OutPut\EDRIM_Loader_OutPut'
-report_tree=r'C:\Users\BrunoHenriqueNunes\Desktop\Consolidate Python\Report.xlsx'
+path=r'C:\Users\039762631\Downloads\SmartCMT Reports\SmartCMT Reports'
+report_tree=r'C:\Users\039762631\Downloads\SmartCMT Reports\SmartCMT Reports\Report.xlsx'
+sheet_name=r'Sheet1'
 
 files = os.listdir(path)
 
@@ -13,7 +14,7 @@ df = pd.DataFrame()
 for f in files:
     try:
         fo=path+"\\"+f
-        data = pd.read_excel(fo, header = None,encoding='latin-1')
+        data = pd.read_excel(fo, header = None,sheet_name =sheet_name)
         data['Name_File'] = f
         df = df.append(data)
         print("File "+str(f)+" Processed - Number "+str(i)+" of "+str(len(files)))
